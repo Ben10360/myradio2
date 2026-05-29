@@ -241,50 +241,45 @@ background:#ddd;
 
 }
 
-/* SOCIAL */
+/* ABOUT */
 
-.socials{
+.about{
 
-display:flex;
-justify-content:center;
-gap:18px;
+margin-top:22px;
 
-margin-top:28px;
+text-align:center;
 
 }
 
-.social{
+.about a{
 
-width:58px;
-height:58px;
+display:inline-block;
+
+padding:14px 24px;
 
 border-radius:18px;
 
-background:rgba(255,255,255,0.05);
+background:rgba(255,255,255,0.06);
 
 border:1px solid rgba(255,255,255,0.08);
 
-display:flex;
-justify-content:center;
-align-items:center;
-
-font-size:28px;
+color:white;
 
 text-decoration:none;
 
-color:white;
+font-size:15px;
 
 transition:0.3s;
 
 }
 
-.social:hover{
+.about a:hover{
 
 background:white;
 
 color:black;
 
-transform:translateY(-5px);
+transform:translateY(-4px);
 
 }
 
@@ -336,21 +331,12 @@ Loading...
 PLAY RADIO
 </button>
 
-<div class="socials">
+<div class="about">
 
-<a class="social"
-href="https://t.me/USERNAME"
+<a href="https://aboutme.amirali-nasiri-200.workers.dev/"
 target="_blank">
 
-✈️
-
-</a>
-
-<a class="social"
-href="https://instagram.com/USERNAME"
-target="_blank">
-
-📷
+👤 درباره من
 
 </a>
 
@@ -361,14 +347,6 @@ target="_blank">
 <script>
 
 /* SONGS */
-
-const songs = [
-
-"https://cdn.musicgitar.ir/Music/Dariush/320/Dariush%20-%20Dobareh%20Baz%20Khahama%20Gasht%20%5B320%5D.mp3?src=musicgitar?_=1"
-
-];
-
-/* BACKGROUNDS */
 
 const songs = [
 
@@ -396,8 +374,21 @@ const songs = [
 
 ];
 
+/* BACKGROUNDS */
 
-/* CHANGE BACKGROUND */
+const backgrounds = [
+
+"https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1400&auto=format&fit=crop",
+
+"https://images.unsplash.com/photo-1501612780327-45045538702b?q=80&w=1400&auto=format&fit=crop",
+
+"https://images.unsplash.com/photo-1499364615650-ec38552f4f34?q=80&w=1400&auto=format&fit=crop",
+
+"https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=1400&auto=format&fit=crop"
+
+];
+
+/* BACKGROUND CHANGE */
 
 let currentBg = 0;
 
@@ -420,13 +411,14 @@ currentBg = 0;
 
 changeBackground();
 
-setInterval(changeBackground, 10000);
+setInterval(changeBackground,10000);
 
 /* MUSIC */
 
 let currentSong = 0;
 
-const audio = document.getElementById("audio");
+const audio =
+document.getElementById("audio");
 
 const songName =
 document.getElementById("songName");
@@ -442,7 +434,7 @@ songs[index]
 .pop()
 .replace(".mp3","")
 .replaceAll("-"," ")
-.replaceAll("%20"," ")
+.replaceAll("_"," ")
 
 );
 

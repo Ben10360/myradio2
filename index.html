@@ -1,0 +1,471 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BEN10 PLAYER</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+overflow:hidden;
+
+background:#050816;
+
+}
+
+/* ANIMATED BACKGROUND */
+
+.bg{
+
+position:absolute;
+width:100%;
+height:100%;
+
+background:url("https://wallpapercave.com/wp/wp16354549.webp") center/cover;
+
+filter:blur(10px) brightness(0.3);
+
+animation:zoom 15s infinite alternate;
+
+}
+
+@keyframes zoom{
+
+0%{
+transform:scale(1);
+}
+
+100%{
+transform:scale(1.2);
+}
+
+}
+
+/* GREEN EFFECTS */
+
+.glow1{
+
+position:absolute;
+
+width:500px;
+height:500px;
+
+background:#00ff88;
+
+filter:blur(180px);
+
+opacity:0.2;
+
+top:-100px;
+left:-100px;
+
+border-radius:50%;
+
+animation:move1 10s infinite alternate;
+
+}
+
+.glow2{
+
+position:absolute;
+
+width:400px;
+height:400px;
+
+background:#00ff88;
+
+filter:blur(180px);
+
+opacity:0.15;
+
+bottom:-100px;
+right:-100px;
+
+border-radius:50%;
+
+animation:move2 12s infinite alternate;
+
+}
+
+@keyframes move1{
+
+0%{
+transform:translate(0,0);
+}
+
+100%{
+transform:translate(100px,50px);
+}
+
+}
+
+@keyframes move2{
+
+0%{
+transform:translate(0,0);
+}
+
+100%{
+transform:translate(-80px,-50px);
+}
+
+}
+
+/* PLAYER */
+
+.player{
+
+position:relative;
+
+width:350px;
+
+padding:25px;
+
+border-radius:35px;
+
+background:rgba(255,255,255,0.06);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,0.08);
+
+box-shadow:0 0 40px rgba(0,255,136,0.2);
+
+z-index:5;
+
+}
+
+/* TOP */
+
+.top{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+margin-bottom:25px;
+
+color:white;
+
+}
+
+.icon{
+
+width:40px;
+height:40px;
+
+border-radius:12px;
+
+background:rgba(255,255,255,0.08);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:18px;
+
+}
+
+/* COVER */
+
+.cover{
+
+width:220px;
+height:220px;
+
+margin:auto;
+
+border-radius:50%;
+
+overflow:hidden;
+
+border:8px solid rgba(255,255,255,0.08);
+
+box-shadow:0 0 30px rgba(0,255,136,0.4);
+
+animation:rotate 20s linear infinite;
+
+}
+
+.cover img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+}
+
+@keyframes rotate{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+/* TEXT */
+
+h1{
+
+text-align:center;
+
+margin-top:25px;
+
+color:white;
+
+font-size:28px;
+
+}
+
+p{
+
+text-align:center;
+
+color:#00ff88;
+
+margin-top:5px;
+
+}
+
+/* AUDIO */
+
+audio{
+
+width:100%;
+
+margin-top:25px;
+
+filter:hue-rotate(70deg);
+
+}
+
+/* CONTROLS */
+
+.controls{
+
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+
+margin-top:25px;
+
+}
+
+.btn{
+
+width:60px;
+height:60px;
+
+border-radius:50%;
+
+border:none;
+
+background:rgba(255,255,255,0.08);
+
+color:white;
+
+font-size:22px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.btn:hover{
+
+transform:scale(1.1);
+
+background:#00ff88;
+
+color:black;
+
+box-shadow:0 0 20px #00ff88;
+
+}
+
+.play{
+
+width:75px;
+height:75px;
+
+background:#00ff88;
+
+color:black;
+
+font-size:28px;
+
+box-shadow:0 0 25px #00ff88;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="glow1"></div>
+<div class="glow2"></div>
+
+<div class="player">
+
+<div class="top">
+
+<div class="icon">☰</div>
+
+<div>
+Now Playing
+</div>
+
+<div class="icon">⌕</div>
+
+</div>
+
+<div class="cover">
+
+<img src="https://wallpapercave.com/wp/wp16354549.webp">
+
+</div>
+
+<h1 id="songName">
+
+BEN10 RADIO
+
+</h1>
+
+<p>
+
+Online Music Player
+
+</p>
+
+<audio id="audio" controls></audio>
+
+<div class="controls">
+
+<button class="btn" onclick="prevSong()">
+⏮
+</button>
+
+<button class="btn play" onclick="playSong()">
+▶
+</button>
+
+<button class="btn" onclick="nextSong()">
+⏭
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const songs = [
+
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Bonbast.mp3",
+
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Booye+Gandom.mp3",
+
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Cheshme+Man.mp3"
+
+];
+
+let currentSong = 0;
+
+const audio = document.getElementById("audio");
+const songName = document.getElementById("songName");
+
+function loadSong(index){
+
+audio.src = songs[index];
+
+songName.innerText = decodeURIComponent(
+
+songs[index]
+.split("/")
+.pop()
+.replace(".mp3","")
+.replaceAll("+"," ")
+
+);
+
+}
+
+function playSong(){
+
+audio.play();
+
+}
+
+function nextSong(){
+
+currentSong++;
+
+if(currentSong >= songs.length){
+
+currentSong = 0;
+
+}
+
+loadSong(currentSong);
+
+audio.play();
+
+}
+
+function prevSong(){
+
+currentSong--;
+
+if(currentSong < 0){
+
+currentSong = songs.length - 1;
+
+}
+
+loadSong(currentSong);
+
+audio.play();
+
+}
+
+audio.addEventListener("ended", nextSong);
+
+loadSong(currentSong);
+
+</script>
+
+</body>
+</html>
+```

@@ -1,6 +1,6 @@
 ```html
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 
 <head>
 
@@ -10,8 +10,7 @@
 <title>BEN10 RADIO</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,10 +18,17 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Vazirmatn',sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
+
+background:
+radial-gradient(circle at top left,#00ff8840,transparent 30%),
+radial-gradient(circle at bottom right,#00ff8830,transparent 30%),
+#050816;
+
+color:white;
 
 height:100vh;
 
@@ -30,25 +36,18 @@ display:flex;
 justify-content:center;
 align-items:center;
 
-background:
-radial-gradient(circle at top left,#00ff8840,transparent 30%),
-radial-gradient(circle at bottom right,#00ff8840,transparent 30%),
-#050816;
-
 overflow:hidden;
-
-padding:20px;
 
 }
 
 /* BACKGROUND */
 
-.shape1{
+.blur{
 
 position:absolute;
 
-width:400px;
-height:400px;
+width:500px;
+height:500px;
 
 background:#00ff88;
 
@@ -56,58 +55,10 @@ filter:blur(180px);
 
 opacity:0.15;
 
+border-radius:50%;
+
 top:-150px;
-left:-120px;
-
-border-radius:50%;
-
-animation:move1 10s infinite alternate;
-
-}
-
-.shape2{
-
-position:absolute;
-
-width:350px;
-height:350px;
-
-background:#00ff88;
-
-filter:blur(180px);
-
-opacity:0.1;
-
-bottom:-150px;
-right:-100px;
-
-border-radius:50%;
-
-animation:move2 12s infinite alternate;
-
-}
-
-@keyframes move1{
-
-from{
-transform:translateY(0px);
-}
-
-to{
-transform:translateY(40px);
-}
-
-}
-
-@keyframes move2{
-
-from{
-transform:translateX(0px);
-}
-
-to{
-transform:translateX(-40px);
-}
+left:-100px;
 
 }
 
@@ -115,8 +66,7 @@ transform:translateX(-40px);
 
 .card{
 
-width:100%;
-max-width:420px;
+width:420px;
 
 background:rgba(255,255,255,0.04);
 
@@ -124,52 +74,15 @@ border:1px solid rgba(255,255,255,0.08);
 
 backdrop-filter:blur(25px);
 
-border-radius:40px;
+border-radius:35px;
 
 padding:30px;
 
-position:relative;
-
 box-shadow:0 0 50px rgba(0,255,136,0.08);
 
+position:relative;
+
 z-index:2;
-
-animation:float 5s ease-in-out infinite;
-
-}
-
-@keyframes float{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-10px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
-/* IMAGE */
-
-.cover{
-
-width:100%;
-height:260px;
-
-border-radius:30px;
-
-object-fit:cover;
-
-border:3px solid rgba(0,255,136,0.2);
-
-box-shadow:0 0 30px rgba(0,255,136,0.2);
-
-margin-bottom:25px;
 
 }
 
@@ -179,14 +92,31 @@ margin-bottom:25px;
 
 text-align:center;
 
-font-size:35px;
+font-size:38px;
 font-weight:700;
 
 color:#00ff88;
 
-margin-bottom:20px;
+margin-bottom:25px;
 
 text-shadow:0 0 20px #00ff88;
+
+}
+
+/* IMAGE */
+
+.cover{
+
+width:100%;
+height:280px;
+
+border-radius:28px;
+
+object-fit:cover;
+
+margin-bottom:25px;
+
+border:2px solid rgba(0,255,136,0.2);
 
 }
 
@@ -194,16 +124,12 @@ text-shadow:0 0 20px #00ff88;
 
 .song{
 
-text-align:center;
-
-font-size:20px;
+font-size:22px;
 font-weight:600;
 
 margin-bottom:10px;
 
-word-break:break-word;
-
-color:white;
+text-align:center;
 
 }
 
@@ -223,9 +149,9 @@ audio{
 
 width:100%;
 
-margin-bottom:20px;
-
 filter:hue-rotate(70deg);
+
+margin-bottom:20px;
 
 }
 
@@ -241,9 +167,9 @@ border:none;
 
 border-radius:18px;
 
-background:#38bdf8;
+background:#00ff88;
 
-color:white;
+color:black;
 
 font-size:16px;
 font-weight:700;
@@ -252,15 +178,13 @@ cursor:pointer;
 
 transition:0.3s;
 
-box-shadow:0 0 25px rgba(56,189,248,0.3);
-
 }
 
 .btn:hover{
 
-transform:scale(1.03);
+transform:translateY(-5px);
 
-box-shadow:0 0 40px #38bdf8;
+box-shadow:0 0 25px #00ff88;
 
 }
 
@@ -280,31 +204,7 @@ color:#00ff88;
 
 text-decoration:none;
 
-font-size:16px;
-
-}
-
-/* MOBILE */
-
-@media(max-width:500px){
-
-.logo{
-
-font-size:28px;
-
-}
-
-.cover{
-
-height:220px;
-
-}
-
-.song{
-
-font-size:17px;
-
-}
+font-size:15px;
 
 }
 
@@ -314,8 +214,7 @@ font-size:17px;
 
 <body>
 
-<div class="shape1"></div>
-<div class="shape2"></div>
+<div class="blur"></div>
 
 <div class="card">
 
@@ -327,7 +226,7 @@ BEN10 RADIO
 src="https://wallpapercave.com/wp/wp16354549.webp">
 
 <div class="song" id="songName">
-READY TO PLAY
+Loading...
 </div>
 
 <div class="artist">
@@ -337,12 +236,12 @@ READY TO PLAY
 <audio id="audio" controls></audio>
 
 <button class="btn" onclick="playSong()">
-▶ PLAY RADIO
+PLAY RADIO
 </button>
 
 <div class="about">
 
-<a href="https://aboutme.amirali-nasiri-200.workers.dev/" target="_blank">
+<a href="https://google.com" target="_blank">
 
 👤 About Me
 
@@ -354,69 +253,65 @@ READY TO PLAY
 
 <script>
 
+```javascript
 const songs = [
 
-"https://uploadkon.ir/uploads/564429_26Dariush-Baradar-Jaan-Copy.mp3",
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Cheshme+Man.mp3",
 
-"https://uploadkon.ir/uploads/5faf29_26Dariush-Be-man-Nagoo-Dooset-Daram-Copy.mp3",
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Bonbast.mp3",
 
-"https://uploadkon.ir/uploads/da6529_26Dariush-Bonbast.mp3",
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Booye+Gandom.mp3",
 
-"https://uploadkon.ir/uploads/e1b629_26Dariush-Booye-Gandom.mp3",
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Faryad+Zire+Aab.mp3",
 
-"https://uploadkon.ir/uploads/fff829_26Dariush-Cheshme-Man.mp3",
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Gelayeh.mp3",
 
-"https://uploadkon.ir/uploads/34f429_26Dariush-Faryad-Zire-Aab.mp3",
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Ghalandar.mp3",
 
-"https://uploadkon.ir/uploads/bdea29_26Dariush-Gelayeh.mp3",
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Gozashtehaye+Door.mp3",
 
-"https://uploadkon.ir/uploads/064329_26Dariush-Gozashtehaye-Door.mp3",
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Hasood.mp3",
 
-"https://uploadkon.ir/uploads/b55629_26Dariush-Hasood.mp3",
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Khorshid+Khanoom.mp3",
 
-"https://uploadkon.ir/uploads/26eb29_26Dariush-Khorshid-Khanoom.mp3",
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Shaghayegh.mp3",
 
-"https://uploadkon.ir/uploads/aeaa29_26Dariush-Niyayesh.mp3"
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Niyayesh.mp3",
+
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Shahre+Gham.mp3",
+
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Tange+Ghoroobeh.mp3",
+
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Vatan.mp3",
+
+"https://archive.org/download/dariush-booye-gandom/Dariush-Shirin-Shirin.mp3"
 
 ];
 
 let currentSong = 0;
 
 const audio = document.getElementById("audio");
-
 const songName = document.getElementById("songName");
-
-/* LOAD SONG */
 
 function loadSong(index){
 
 audio.src = songs[index];
 
-const cleanName = songs[index]
-
+songName.innerText = decodeURIComponent(
+songs[index]
 .split("/")
-
 .pop()
-
 .replace(".mp3","")
-
-.replaceAll("-"," ")
-
-.replaceAll("_"," ");
-
-songName.innerText = decodeURIComponent(cleanName);
+.replaceAll("+"," ")
+);
 
 }
-
-/* PLAY */
 
 function playSong(){
 
 audio.play();
 
 }
-
-/* NEXT SONG */
 
 function nextSong(){
 
@@ -434,11 +329,13 @@ audio.play();
 
 }
 
-/* AUTO NEXT */
-
 audio.addEventListener("ended", nextSong);
 
-/* FIRST LOAD */
+loadSong(currentSong);
+```
+
+
+});
 
 loadSong(currentSong);
 

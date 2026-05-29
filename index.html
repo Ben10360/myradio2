@@ -1,16 +1,17 @@
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BEN10 RADIO</title>
+<title>RADIO PROFILE</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -18,17 +19,10 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:'Vazirmatn',sans-serif;
 }
 
 body{
-
-background:
-radial-gradient(circle at top left,#00ff8840,transparent 30%),
-radial-gradient(circle at bottom right,#00ff8830,transparent 30%),
-#050816;
-
-color:white;
 
 height:100vh;
 
@@ -36,18 +30,25 @@ display:flex;
 justify-content:center;
 align-items:center;
 
+background:
+radial-gradient(circle at top left,#00ff8840,transparent 30%),
+radial-gradient(circle at bottom right,#00ff8840,transparent 30%),
+#050816;
+
 overflow:hidden;
+
+padding:20px;
 
 }
 
 /* BACKGROUND */
 
-.blur{
+.blur1{
 
 position:absolute;
 
-width:500px;
-height:500px;
+width:400px;
+height:400px;
 
 background:#00ff88;
 
@@ -55,10 +56,58 @@ filter:blur(180px);
 
 opacity:0.15;
 
-border-radius:50%;
-
 top:-150px;
 left:-100px;
+
+border-radius:50%;
+
+animation:move1 8s infinite alternate;
+
+}
+
+.blur2{
+
+position:absolute;
+
+width:350px;
+height:350px;
+
+background:#00ff88;
+
+filter:blur(180px);
+
+opacity:0.1;
+
+bottom:-120px;
+right:-100px;
+
+border-radius:50%;
+
+animation:move2 10s infinite alternate;
+
+}
+
+@keyframes move1{
+
+from{
+transform:translateY(0px);
+}
+
+to{
+transform:translateY(40px);
+}
+
+}
+
+@keyframes move2{
+
+from{
+transform:translateX(0px);
+}
+
+to{
+transform:translateX(-40px);
+}
 
 }
 
@@ -66,7 +115,8 @@ left:-100px;
 
 .card{
 
-width:420px;
+width:100%;
+max-width:430px;
 
 background:rgba(255,255,255,0.04);
 
@@ -74,137 +124,210 @@ border:1px solid rgba(255,255,255,0.08);
 
 backdrop-filter:blur(25px);
 
-border-radius:35px;
+border-radius:40px;
 
-padding:30px;
-
-box-shadow:0 0 50px rgba(0,255,136,0.08);
+padding:35px;
 
 position:relative;
+
+box-shadow:0 0 50px rgba(0,255,136,0.08);
 
 z-index:2;
 
 }
 
-/* TITLE */
+/* AVATAR */
 
-.logo{
+.avatar-box{
 
-text-align:center;
+display:flex;
+justify-content:center;
 
-font-size:38px;
-font-weight:700;
-
-color:#00ff88;
-
-margin-bottom:25px;
-
-text-shadow:0 0 20px #00ff88;
+margin-top:-110px;
 
 }
 
-/* IMAGE */
+.avatar{
 
-.cover{
+width:190px;
+height:190px;
 
-width:100%;
-height:280px;
-
-border-radius:28px;
+border-radius:35px;
 
 object-fit:cover;
 
-margin-bottom:25px;
+border:4px solid rgba(0,255,136,0.3);
 
-border:2px solid rgba(0,255,136,0.2);
+box-shadow:0 0 40px rgba(0,255,136,0.2);
 
 }
 
-/* SONG */
+/* NAME */
 
-.song{
-
-font-size:22px;
-font-weight:600;
-
-margin-bottom:10px;
+.name{
 
 text-align:center;
 
-}
+font-size:36px;
+font-weight:700;
 
-.artist{
+margin-top:25px;
 
-text-align:center;
-
-color:#999;
-
-margin-bottom:25px;
+color:white;
 
 }
 
-/* AUDIO */
+.role{
 
-audio{
+width:max-content;
 
-width:100%;
+margin:18px auto;
 
-filter:hue-rotate(70deg);
+padding:12px 22px;
 
-margin-bottom:20px;
+border-radius:16px;
+
+background:rgba(255,255,255,0.05);
+
+border:1px solid rgba(255,255,255,0.08);
+
+color:#00ff88;
+
+font-size:15px;
 
 }
 
-/* BUTTON */
+/* SOCIALS */
 
-.btn{
+.socials{
 
-width:100%;
+display:flex;
+justify-content:center;
+gap:18px;
 
-padding:16px;
+margin-top:25px;
+margin-bottom:35px;
 
-border:none;
+}
 
-border-radius:18px;
+.social{
+
+width:65px;
+height:65px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,0.05);
+
+border:1px solid rgba(255,255,255,0.08);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:30px;
+
+text-decoration:none;
+
+transition:0.3s;
+
+color:white;
+
+}
+
+.social:hover{
+
+transform:translateY(-5px);
 
 background:#00ff88;
 
 color:black;
 
-font-size:16px;
-font-weight:700;
-
-cursor:pointer;
-
-transition:0.3s;
-
-}
-
-.btn:hover{
-
-transform:translateY(-5px);
-
 box-shadow:0 0 25px #00ff88;
 
 }
 
-/* ABOUT */
+/* INFO */
 
-.about{
+.info-box{
 
-margin-top:20px;
+background:rgba(255,255,255,0.03);
 
-text-align:center;
+border:1px solid rgba(255,255,255,0.05);
+
+border-radius:28px;
+
+padding:20px;
+
+display:flex;
+flex-direction:column;
+gap:15px;
 
 }
 
-.about a{
+.item{
 
-color:#00ff88;
+background:rgba(0,0,0,0.25);
 
-text-decoration:none;
+border-radius:18px;
 
-font-size:15px;
+padding:18px 20px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+border:1px solid rgba(255,255,255,0.05);
+
+}
+
+.label{
+
+color:#999;
+
+font-size:14px;
+
+}
+
+.value{
+
+color:white;
+
+font-size:18px;
+
+font-weight:500;
+
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+.card{
+
+padding:25px;
+
+}
+
+.avatar{
+
+width:160px;
+height:160px;
+
+}
+
+.name{
+
+font-size:28px;
+
+}
+
+.social{
+
+width:58px;
+height:58px;
+
+}
 
 }
 
@@ -214,133 +337,113 @@ font-size:15px;
 
 <body>
 
-<div class="blur"></div>
+<div class="blur1"></div>
+<div class="blur2"></div>
 
 <div class="card">
 
-<div class="logo">
-BEN10 RADIO
+<div class="avatar-box">
+
+<img class="avatar"
+src="https://i.imgur.com/8Km9tLL.jpg">
+
 </div>
 
-<img class="cover"
-src="https://wallpapercave.com/wp/wp16354549.webp">
+<h1 class="name">
+AMIRALI
+</h1>
 
-<div class="song" id="songName">
-Loading...
+<div class="role">
+🎧 RADIO DEVELOPER
 </div>
 
-<div class="artist">
-24/7 Online Radio
-</div>
+<div class="socials">
 
-<audio id="audio" controls></audio>
+<a class="social"
+href="https://t.me/USERNAME"
+target="_blank">
 
-<button class="btn" onclick="playSong()">
-PLAY RADIO
-</button>
+✈️
 
-<div class="about">
+</a>
 
-<a href="https://google.com" target="_blank">
+<a class="social"
+href="https://instagram.com/USERNAME"
+target="_blank">
 
-👤 About Me
+📷
 
 </a>
 
 </div>
 
+<div class="info-box">
+
+<div class="item">
+
+<div>
+
+<div class="label">
+سن
 </div>
 
-<script>
+<div class="value">
+18 Years
+</div>
 
-```javascript
-const songs = [
+</div>
 
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Cheshme+Man.mp3",
+<div class="value">
+🎂
+</div>
 
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Bonbast.mp3",
+</div>
 
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Booye+Gandom.mp3",
+<div class="item">
 
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Faryad+Zire+Aab.mp3",
+<div>
 
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Gelayeh.mp3",
+<div class="label">
+مهارت
+</div>
 
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Ghalandar.mp3",
+<div class="value">
+Radio Designer
+</div>
 
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Gozashtehaye+Door.mp3",
+</div>
 
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Hasood.mp3",
+<div class="value">
+🎵
+</div>
 
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Khorshid+Khanoom.mp3",
+</div>
 
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Shaghayegh.mp3",
+<div class="item">
 
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Niyayesh.mp3",
+<div>
 
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Shahre+Gham.mp3",
+<div class="label">
+موقعیت
+</div>
 
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Tange+Ghoroobeh.mp3",
+<div class="value">
+Iran - Yazd
+</div>
 
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Vatan.mp3",
+</div>
 
-"https://archive.org/download/dariush-booye-gandom/Dariush-Shirin-Shirin.mp3"
+<div class="value">
+📍
+</div>
 
-];
+</div>
 
-let currentSong = 0;
+</div>
 
-const audio = document.getElementById("audio");
-const songName = document.getElementById("songName");
-
-function loadSong(index){
-
-audio.src = songs[index];
-
-songName.innerText = decodeURIComponent(
-songs[index]
-.split("/")
-.pop()
-.replace(".mp3","")
-.replaceAll("+"," ")
-);
-
-}
-
-function playSong(){
-
-audio.play();
-
-}
-
-function nextSong(){
-
-currentSong++;
-
-if(currentSong >= songs.length){
-
-currentSong = 0;
-
-}
-
-loadSong(currentSong);
-
-audio.play();
-
-}
-
-audio.addEventListener("ended", nextSong);
-
-loadSong(currentSong);
-```
-
-
-});
-
-loadSong(currentSong);
-
-</script>
+</div>
 
 </body>
+
 </html>
 ```

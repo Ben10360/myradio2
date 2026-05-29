@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RADIO PROFILE</title>
+<title>BEN10 RADIO</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -43,7 +43,7 @@ padding:20px;
 
 /* BACKGROUND */
 
-.blur1{
+.shape1{
 
 position:absolute;
 
@@ -57,15 +57,15 @@ filter:blur(180px);
 opacity:0.15;
 
 top:-150px;
-left:-100px;
+left:-120px;
 
 border-radius:50%;
 
-animation:move1 8s infinite alternate;
+animation:move1 10s infinite alternate;
 
 }
 
-.blur2{
+.shape2{
 
 position:absolute;
 
@@ -78,12 +78,12 @@ filter:blur(180px);
 
 opacity:0.1;
 
-bottom:-120px;
+bottom:-150px;
 right:-100px;
 
 border-radius:50%;
 
-animation:move2 10s infinite alternate;
+animation:move2 12s infinite alternate;
 
 }
 
@@ -116,7 +116,7 @@ transform:translateX(-40px);
 .card{
 
 width:100%;
-max-width:430px;
+max-width:420px;
 
 background:rgba(255,255,255,0.04);
 
@@ -126,7 +126,7 @@ backdrop-filter:blur(25px);
 
 border-radius:40px;
 
-padding:35px;
+padding:30px;
 
 position:relative;
 
@@ -134,168 +134,153 @@ box-shadow:0 0 50px rgba(0,255,136,0.08);
 
 z-index:2;
 
-}
-
-/* AVATAR */
-
-.avatar-box{
-
-display:flex;
-justify-content:center;
-
-margin-top:-110px;
+animation:float 5s ease-in-out infinite;
 
 }
 
-.avatar{
+@keyframes float{
 
-width:190px;
-height:190px;
+0%{
+transform:translateY(0px);
+}
 
-border-radius:35px;
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* IMAGE */
+
+.cover{
+
+width:100%;
+height:260px;
+
+border-radius:30px;
 
 object-fit:cover;
 
-border:4px solid rgba(0,255,136,0.3);
+border:3px solid rgba(0,255,136,0.2);
 
-box-shadow:0 0 40px rgba(0,255,136,0.2);
+box-shadow:0 0 30px rgba(0,255,136,0.2);
+
+margin-bottom:25px;
 
 }
 
-/* NAME */
+/* TITLE */
 
-.name{
+.logo{
 
 text-align:center;
 
-font-size:36px;
+font-size:35px;
 font-weight:700;
-
-margin-top:25px;
-
-color:white;
-
-}
-
-.role{
-
-width:max-content;
-
-margin:18px auto;
-
-padding:12px 22px;
-
-border-radius:16px;
-
-background:rgba(255,255,255,0.05);
-
-border:1px solid rgba(255,255,255,0.08);
 
 color:#00ff88;
 
-font-size:15px;
+margin-bottom:20px;
+
+text-shadow:0 0 20px #00ff88;
 
 }
 
-/* SOCIALS */
+/* SONG */
 
-.socials{
+.song{
 
-display:flex;
-justify-content:center;
-gap:18px;
+text-align:center;
 
-margin-top:25px;
-margin-bottom:35px;
+font-size:20px;
+font-weight:600;
 
-}
+margin-bottom:10px;
 
-.social{
-
-width:65px;
-height:65px;
-
-border-radius:20px;
-
-background:rgba(255,255,255,0.05);
-
-border:1px solid rgba(255,255,255,0.08);
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-font-size:30px;
-
-text-decoration:none;
-
-transition:0.3s;
+word-break:break-word;
 
 color:white;
 
 }
 
-.social:hover{
+.artist{
 
-transform:translateY(-5px);
-
-background:#00ff88;
-
-color:black;
-
-box-shadow:0 0 25px #00ff88;
-
-}
-
-/* INFO */
-
-.info-box{
-
-background:rgba(255,255,255,0.03);
-
-border:1px solid rgba(255,255,255,0.05);
-
-border-radius:28px;
-
-padding:20px;
-
-display:flex;
-flex-direction:column;
-gap:15px;
-
-}
-
-.item{
-
-background:rgba(0,0,0,0.25);
-
-border-radius:18px;
-
-padding:18px 20px;
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-border:1px solid rgba(255,255,255,0.05);
-
-}
-
-.label{
+text-align:center;
 
 color:#999;
 
-font-size:14px;
+margin-bottom:25px;
 
 }
 
-.value{
+/* AUDIO */
+
+audio{
+
+width:100%;
+
+margin-bottom:20px;
+
+filter:hue-rotate(70deg);
+
+}
+
+/* BUTTON */
+
+.btn{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:18px;
+
+background:#38bdf8;
 
 color:white;
 
-font-size:18px;
+font-size:16px;
+font-weight:700;
 
-font-weight:500;
+cursor:pointer;
+
+transition:0.3s;
+
+box-shadow:0 0 25px rgba(56,189,248,0.3);
+
+}
+
+.btn:hover{
+
+transform:scale(1.03);
+
+box-shadow:0 0 40px #38bdf8;
+
+}
+
+/* ABOUT */
+
+.about{
+
+margin-top:20px;
+
+text-align:center;
+
+}
+
+.about a{
+
+color:#00ff88;
+
+text-decoration:none;
+
+font-size:16px;
 
 }
 
@@ -303,29 +288,21 @@ font-weight:500;
 
 @media(max-width:500px){
 
-.card{
-
-padding:25px;
-
-}
-
-.avatar{
-
-width:160px;
-height:160px;
-
-}
-
-.name{
+.logo{
 
 font-size:28px;
 
 }
 
-.social{
+.cover{
 
-width:58px;
-height:58px;
+height:220px;
+
+}
+
+.song{
+
+font-size:17px;
 
 }
 
@@ -337,113 +314,136 @@ height:58px;
 
 <body>
 
-<div class="blur1"></div>
-<div class="blur2"></div>
+<div class="shape1"></div>
+<div class="shape2"></div>
 
 <div class="card">
 
-<div class="avatar-box">
-
-<img class="avatar"
-src="https://i.imgur.com/8Km9tLL.jpg">
-
+<div class="logo">
+BEN10 RADIO
 </div>
 
-<h1 class="name">
-AMIRALI
-</h1>
+<img class="cover"
+src="https://wallpapercave.com/wp/wp16354549.webp">
 
-<div class="role">
-🎧 RADIO DEVELOPER
+<div class="song" id="songName">
+READY TO PLAY
 </div>
 
-<div class="socials">
+<div class="artist">
+24/7 Online Radio
+</div>
 
-<a class="social"
-href="https://t.me/USERNAME"
-target="_blank">
+<audio id="audio" controls></audio>
 
-✈️
+<button class="btn" onclick="playSong()">
+▶ PLAY RADIO
+</button>
 
-</a>
+<div class="about">
 
-<a class="social"
-href="https://instagram.com/USERNAME"
-target="_blank">
+<a href="https://aboutme.amirali-nasiri-200.workers.dev/" target="_blank">
 
-📷
+👤 About Me
 
 </a>
 
 </div>
 
-<div class="info-box">
-
-<div class="item">
-
-<div>
-
-<div class="label">
-سن
 </div>
 
-<div class="value">
-18 Years
-</div>
+<script>
 
-</div>
+const songs = [
 
-<div class="value">
-🎂
-</div>
+"https://uploadkon.ir/uploads/564429_26Dariush-Baradar-Jaan-Copy.mp3",
 
-</div>
+"https://uploadkon.ir/uploads/5faf29_26Dariush-Be-man-Nagoo-Dooset-Daram-Copy.mp3",
 
-<div class="item">
+"https://uploadkon.ir/uploads/da6529_26Dariush-Bonbast.mp3",
 
-<div>
+"https://uploadkon.ir/uploads/e1b629_26Dariush-Booye-Gandom.mp3",
 
-<div class="label">
-مهارت
-</div>
+"https://uploadkon.ir/uploads/fff829_26Dariush-Cheshme-Man.mp3",
 
-<div class="value">
-Radio Designer
-</div>
+"https://uploadkon.ir/uploads/34f429_26Dariush-Faryad-Zire-Aab.mp3",
 
-</div>
+"https://uploadkon.ir/uploads/bdea29_26Dariush-Gelayeh.mp3",
 
-<div class="value">
-🎵
-</div>
+"https://uploadkon.ir/uploads/064329_26Dariush-Gozashtehaye-Door.mp3",
 
-</div>
+"https://uploadkon.ir/uploads/b55629_26Dariush-Hasood.mp3",
 
-<div class="item">
+"https://uploadkon.ir/uploads/26eb29_26Dariush-Khorshid-Khanoom.mp3",
 
-<div>
+"https://uploadkon.ir/uploads/aeaa29_26Dariush-Niyayesh.mp3"
 
-<div class="label">
-موقعیت
-</div>
+];
 
-<div class="value">
-Iran - Yazd
-</div>
+let currentSong = 0;
 
-</div>
+const audio = document.getElementById("audio");
 
-<div class="value">
-📍
-</div>
+const songName = document.getElementById("songName");
 
-</div>
+/* LOAD SONG */
 
-</div>
+function loadSong(index){
 
-</div>
+audio.src = songs[index];
+
+const cleanName = songs[index]
+
+.split("/")
+
+.pop()
+
+.replace(".mp3","")
+
+.replaceAll("-"," ")
+
+.replaceAll("_"," ");
+
+songName.innerText = decodeURIComponent(cleanName);
+
+}
+
+/* PLAY */
+
+function playSong(){
+
+audio.play();
+
+}
+
+/* NEXT SONG */
+
+function nextSong(){
+
+currentSong++;
+
+if(currentSong >= songs.length){
+
+currentSong = 0;
+
+}
+
+loadSong(currentSong);
+
+audio.play();
+
+}
+
+/* AUTO NEXT */
+
+audio.addEventListener("ended", nextSong);
+
+/* FIRST LOAD */
+
+loadSong(currentSong);
+
+</script>
 
 </body>
-
 </html>
 ```

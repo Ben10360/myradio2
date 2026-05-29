@@ -10,6 +10,7 @@
 <title>BEN10 RADIO</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -30,35 +31,15 @@ radial-gradient(circle at bottom right,#00ff8830,transparent 30%),
 
 color:white;
 
-height:100vh;
+min-height:100vh;
 
 display:flex;
 justify-content:center;
 align-items:center;
 
+padding:20px;
+
 overflow:hidden;
-
-}
-
-/* BACKGROUND */
-
-.blur{
-
-position:absolute;
-
-width:500px;
-height:500px;
-
-background:#00ff88;
-
-filter:blur(180px);
-
-opacity:0.15;
-
-border-radius:50%;
-
-top:-150px;
-left:-100px;
 
 }
 
@@ -66,23 +47,20 @@ left:-100px;
 
 .card{
 
-width:420px;
+width:100%;
+max-width:420px;
 
-background:rgba(255,255,255,0.04);
+background:rgba(255,255,255,0.05);
 
 border:1px solid rgba(255,255,255,0.08);
 
 backdrop-filter:blur(25px);
 
-border-radius:35px;
+border-radius:30px;
 
-padding:30px;
+padding:25px;
 
 box-shadow:0 0 50px rgba(0,255,136,0.08);
-
-position:relative;
-
-z-index:2;
 
 }
 
@@ -92,14 +70,14 @@ z-index:2;
 
 text-align:center;
 
-font-size:38px;
+font-size:32px;
 font-weight:700;
 
-color:#00ff88;
+color:#38bdf8;
 
-margin-bottom:25px;
+margin-bottom:20px;
 
-text-shadow:0 0 20px #00ff88;
+text-shadow:0 0 20px #38bdf8;
 
 }
 
@@ -108,15 +86,13 @@ text-shadow:0 0 20px #00ff88;
 .cover{
 
 width:100%;
-height:280px;
-
-border-radius:28px;
+height:260px;
 
 object-fit:cover;
 
-margin-bottom:25px;
+border-radius:25px;
 
-border:2px solid rgba(0,255,136,0.2);
+margin-bottom:20px;
 
 }
 
@@ -124,12 +100,14 @@ border:2px solid rgba(0,255,136,0.2);
 
 .song{
 
-font-size:22px;
+font-size:20px;
 font-weight:600;
+
+text-align:center;
 
 margin-bottom:10px;
 
-text-align:center;
+word-break:break-word;
 
 }
 
@@ -139,7 +117,7 @@ text-align:center;
 
 color:#999;
 
-margin-bottom:25px;
+margin-bottom:20px;
 
 }
 
@@ -148,8 +126,6 @@ margin-bottom:25px;
 audio{
 
 width:100%;
-
-filter:hue-rotate(70deg);
 
 margin-bottom:20px;
 
@@ -161,17 +137,17 @@ margin-bottom:20px;
 
 width:100%;
 
-padding:16px;
+padding:15px;
 
 border:none;
 
 border-radius:18px;
 
-background:#00ff88;
+background:#38bdf8;
 
-color:black;
+color:white;
 
-font-size:16px;
+font-size:17px;
 font-weight:700;
 
 cursor:pointer;
@@ -182,9 +158,9 @@ transition:0.3s;
 
 .btn:hover{
 
-transform:translateY(-5px);
+transform:scale(1.03);
 
-box-shadow:0 0 25px #00ff88;
+box-shadow:0 0 20px #38bdf8;
 
 }
 
@@ -200,11 +176,35 @@ text-align:center;
 
 .about a{
 
-color:#00ff88;
+color:#38bdf8;
 
 text-decoration:none;
 
-font-size:15px;
+font-size:16px;
+
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+.logo{
+
+font-size:26px;
+
+}
+
+.cover{
+
+height:220px;
+
+}
+
+.song{
+
+font-size:17px;
+
+}
 
 }
 
@@ -214,34 +214,41 @@ font-size:15px;
 
 <body>
 
-<div class="blur"></div>
-
 <div class="card">
 
 <div class="logo">
+
 BEN10 RADIO
+
 </div>
 
 <img class="cover"
+
 src="https://wallpapercave.com/wp/wp16354549.webp">
 
 <div class="song" id="songName">
-Loading...
+
+Ready To Play
+
 </div>
 
 <div class="artist">
+
 24/7 Online Radio
+
 </div>
 
 <audio id="audio" controls></audio>
 
 <button class="btn" onclick="playSong()">
+
 PLAY RADIO
+
 </button>
 
 <div class="about">
 
-<a href="https://google.com" target="_blank">
+<a href="about.html">
 
 👤 About Me
 
@@ -253,44 +260,20 @@ PLAY RADIO
 
 <script>
 
-```javascript
 const songs = [
 
 "https://archive.org/download/dariush-booye-gandom/Dariush+-+Cheshme+Man.mp3",
 
 "https://archive.org/download/dariush-booye-gandom/Dariush+-+Bonbast.mp3",
 
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Booye+Gandom.mp3",
-
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Faryad+Zire+Aab.mp3",
-
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Gelayeh.mp3",
-
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Ghalandar.mp3",
-
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Gozashtehaye+Door.mp3",
-
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Hasood.mp3",
-
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Khorshid+Khanoom.mp3",
-
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Shaghayegh.mp3",
-
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Niyayesh.mp3",
-
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Shahre+Gham.mp3",
-
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Tange+Ghoroobeh.mp3",
-
-"https://archive.org/download/dariush-booye-gandom/Dariush+-+Vatan.mp3",
-
-"https://archive.org/download/dariush-booye-gandom/Dariush-Shirin-Shirin.mp3"
+"https://archive.org/download/dariush-booye-gandom/Dariush+-+Booye+Gandom.mp3"
 
 ];
 
 let currentSong = 0;
 
 const audio = document.getElementById("audio");
+
 const songName = document.getElementById("songName");
 
 function loadSong(index){
@@ -298,11 +281,13 @@ function loadSong(index){
 audio.src = songs[index];
 
 songName.innerText = decodeURIComponent(
+
 songs[index]
 .split("/")
 .pop()
 .replace(".mp3","")
 .replaceAll("+"," ")
+
 );
 
 }
@@ -330,12 +315,6 @@ audio.play();
 }
 
 audio.addEventListener("ended", nextSong);
-
-loadSong(currentSong);
-```
-
-
-});
 
 loadSong(currentSong);
 

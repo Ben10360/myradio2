@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 
 <head>
 
@@ -10,7 +10,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -18,27 +18,95 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:'Vazirmatn',sans-serif;
 }
 
 body{
 
-background:
-radial-gradient(circle at top left,#00ff8840,transparent 30%),
-radial-gradient(circle at bottom right,#00ff8830,transparent 30%),
-#050816;
-
-color:white;
-
-min-height:100vh;
+height:100vh;
 
 display:flex;
 justify-content:center;
 align-items:center;
 
-padding:20px;
+background:
+radial-gradient(circle at top left,#00ff8840,transparent 30%),
+radial-gradient(circle at bottom right,#00ff8840,transparent 30%),
+#050816;
 
 overflow:hidden;
+
+padding:20px;
+
+}
+
+/* BACKGROUND */
+
+.shape1{
+
+position:absolute;
+
+width:400px;
+height:400px;
+
+background:#00ff88;
+
+filter:blur(180px);
+
+opacity:0.15;
+
+top:-150px;
+left:-120px;
+
+border-radius:50%;
+
+animation:move1 10s infinite alternate;
+
+}
+
+.shape2{
+
+position:absolute;
+
+width:350px;
+height:350px;
+
+background:#00ff88;
+
+filter:blur(180px);
+
+opacity:0.1;
+
+bottom:-150px;
+right:-100px;
+
+border-radius:50%;
+
+animation:move2 12s infinite alternate;
+
+}
+
+@keyframes move1{
+
+from{
+transform:translateY(0px);
+}
+
+to{
+transform:translateY(40px);
+}
+
+}
+
+@keyframes move2{
+
+from{
+transform:translateX(0px);
+}
+
+to{
+transform:translateX(-40px);
+}
 
 }
 
@@ -49,34 +117,39 @@ overflow:hidden;
 width:100%;
 max-width:420px;
 
-background:rgba(255,255,255,0.05);
+background:rgba(255,255,255,0.04);
 
 border:1px solid rgba(255,255,255,0.08);
 
 backdrop-filter:blur(25px);
 
-border-radius:30px;
+border-radius:40px;
 
-padding:25px;
+padding:30px;
+
+position:relative;
 
 box-shadow:0 0 50px rgba(0,255,136,0.08);
 
+z-index:2;
+
+animation:float 5s ease-in-out infinite;
+
 }
 
-/* TITLE */
+@keyframes float{
 
-.logo{
+0%{
+transform:translateY(0px);
+}
 
-text-align:center;
+50%{
+transform:translateY(-10px);
+}
 
-font-size:32px;
-font-weight:700;
-
-color:#38bdf8;
-
-margin-bottom:20px;
-
-text-shadow:0 0 20px #38bdf8;
+100%{
+transform:translateY(0px);
+}
 
 }
 
@@ -87,11 +160,32 @@ text-shadow:0 0 20px #38bdf8;
 width:100%;
 height:260px;
 
+border-radius:30px;
+
 object-fit:cover;
 
-border-radius:25px;
+border:3px solid rgba(0,255,136,0.2);
+
+box-shadow:0 0 30px rgba(0,255,136,0.2);
+
+margin-bottom:25px;
+
+}
+
+/* TITLE */
+
+.logo{
+
+text-align:center;
+
+font-size:35px;
+font-weight:700;
+
+color:#00ff88;
 
 margin-bottom:20px;
+
+text-shadow:0 0 20px #00ff88;
 
 }
 
@@ -99,14 +193,16 @@ margin-bottom:20px;
 
 .song{
 
+text-align:center;
+
 font-size:20px;
 font-weight:600;
-
-text-align:center;
 
 margin-bottom:10px;
 
 word-break:break-word;
+
+color:white;
 
 }
 
@@ -116,7 +212,7 @@ text-align:center;
 
 color:#999;
 
-margin-bottom:20px;
+margin-bottom:25px;
 
 }
 
@@ -128,6 +224,8 @@ width:100%;
 
 margin-bottom:20px;
 
+filter:hue-rotate(70deg);
+
 }
 
 /* BUTTON */
@@ -136,7 +234,7 @@ margin-bottom:20px;
 
 width:100%;
 
-padding:15px;
+padding:16px;
 
 border:none;
 
@@ -146,12 +244,14 @@ background:#38bdf8;
 
 color:white;
 
-font-size:17px;
+font-size:16px;
 font-weight:700;
 
 cursor:pointer;
 
 transition:0.3s;
+
+box-shadow:0 0 25px rgba(56,189,248,0.3);
 
 }
 
@@ -159,7 +259,7 @@ transition:0.3s;
 
 transform:scale(1.03);
 
-box-shadow:0 0 20px #38bdf8;
+box-shadow:0 0 40px #38bdf8;
 
 }
 
@@ -175,7 +275,7 @@ text-align:center;
 
 .about a{
 
-color:#38bdf8;
+color:#00ff88;
 
 text-decoration:none;
 
@@ -189,7 +289,7 @@ font-size:16px;
 
 .logo{
 
-font-size:26px;
+font-size:28px;
 
 }
 
@@ -213,41 +313,35 @@ font-size:17px;
 
 <body>
 
+<div class="shape1"></div>
+<div class="shape2"></div>
+
 <div class="card">
 
 <div class="logo">
-
 BEN10 RADIO
-
 </div>
 
 <img class="cover"
-
 src="https://wallpapercave.com/wp/wp16354549.webp">
 
 <div class="song" id="songName">
-
-Ready To Play
-
+READY TO PLAY
 </div>
 
 <div class="artist">
-
 24/7 Online Radio
-
 </div>
 
 <audio id="audio" controls></audio>
 
 <button class="btn" onclick="playSong()">
-
-PLAY RADIO
-
+▶ PLAY RADIO
 </button>
 
 <div class="about">
 
-<a href="about.html">
+<a href="https://aboutme.amirali-nasiri-200.workers.dev/" target="_blank">
 
 👤 About Me
 
@@ -291,27 +385,37 @@ const audio = document.getElementById("audio");
 
 const songName = document.getElementById("songName");
 
+/* LOAD SONG */
+
 function loadSong(index){
 
 audio.src = songs[index];
 
-songName.innerText = decodeURIComponent(
+const cleanName = songs[index]
 
-songs[index]
 .split("/")
-.pop()
-.replace(".mp3","")
-.replaceAll("+"," ")
 
-);
+.pop()
+
+.replace(".mp3","")
+
+.replaceAll("-"," ")
+
+.replaceAll("_"," ");
+
+songName.innerText = decodeURIComponent(cleanName);
 
 }
+
+/* PLAY */
 
 function playSong(){
 
 audio.play();
 
 }
+
+/* NEXT SONG */
 
 function nextSong(){
 
@@ -329,7 +433,11 @@ audio.play();
 
 }
 
+/* AUTO NEXT */
+
 audio.addEventListener("ended", nextSong);
+
+/* FIRST LOAD */
 
 loadSong(currentSong);
 

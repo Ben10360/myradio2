@@ -1,79 +1,20 @@
-<script>
-
-/* SONGS */
-
-const songs = [
-
-"https://uploadkon.ir/uploads/564429_26Dariush-Baradar-Jaan-Copy.mp3",
-"https://uploadkon.ir/uploads/5faf29_26Dariush-Be-man-Nagoo-Dooset-Daram-Copy.mp3",
-"https://uploadkon.ir/uploads/da6529_26Dariush-Bonbast.mp3",
-"https://uploadkon.ir/uploads/e1b629_26Dariush-Booye-Gandom.mp3",
-"https://uploadkon.ir/uploads/fff829_26Dariush-Cheshme-Man.mp3",
-"https://uploadkon.ir/uploads/34f429_26Dariush-Faryad-Zire-Aab.mp3",
-"https://uploadkon.ir/uploads/bdea29_26Dariush-Gelayeh.mp3",
-"https://uploadkon.ir/uploads/064329_26Dariush-Gozashtehaye-Door.mp3",
-"https://uploadkon.ir/uploads/b55629_26Dariush-Hasood.mp3",
-"https://uploadkon.ir/uploads/26eb29_26Dariush-Khorshid-Khanoom.mp3",
-"https://uploadkon.ir/uploads/aeaa29_26Dariush-Niyayesh.mp3"
-
-];
-
-/* BACKGROUNDS */
-
-const backgrounds = [
-
-"https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1400&auto=format&fit=crop",
-"https://images.unsplash.com/photo-1501612780327-45045538702b?q=80&w=1400&auto=format&fit=crop",
-"https://images.unsplash.com/photo-1499364615650-ec38552f4f34?q=80&w=1400&auto=format&fit=crop",
-"https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=1400&auto=format&fit=crop"
-
-];
-
-/* BACKGROUND */
-
-let currentBg = 0;
-
-const bg = document.getElementById("bg");
-
-function changeBackground(){
-
-bg.style.backgroundImage =
-`url(${backgrounds[currentBg]})`;
-
-currentBg++;
-
-if(currentBg >= backgrounds.length){
-currentBg = 0;
-}
-
-}
-
-changeBackground();
-setInterval(changeBackground,10000);
-
+```js
 /* AUDIO */
 
 const audio = document.getElementById("audio");
 const songName = document.getElementById("songName");
 
-/* RANDOM SONG */
+/* START RANDOM */
 
-let currentSong =
-parseInt(localStorage.getItem("lastSong"));
+let currentSong = Math.floor(
+Math.random() * songs.length
+);
 
-if(isNaN(currentSong)){
-currentSong =
-Math.floor(Math.random() * songs.length);
-}
+/* LOAD SONG */
 
 function loadSong(index){
 
 currentSong = index;
-
-localStorage.setItem(
-"lastSong",
-currentSong
-);
 
 audio.src = songs[index];
 audio.load();
@@ -88,7 +29,7 @@ const fileName = songs[index]
 songName.innerText =
 decodeURIComponent(fileName);
 
-console.log("Loading:", songs[index]);
+console.log("Loaded:", songs[index]);
 
 }
 
@@ -104,35 +45,43 @@ loadSong(currentSong);
 
 }
 
+audio.volume = 1;
+audio.muted = false;
+
 await audio.play();
+
+console.log("Playing");
 
 }catch(error){
 
-console.error(error);
+console.error(
+"Play Error:",
+error
+);
 
 }
 
 }
 
-/* RANDOM NEXT SONG */
+/* RANDOM NEXT */
 
 function nextSong(){
 
-let next;
+let nextIndex;
 
 do{
 
-next =
+nextIndex =
 Math.floor(
 Math.random() * songs.length
 );
 
 }while(
-songs.length > 1 &&
-next === currentSong
+nextIndex === currentSong &&
+songs.length > 1
 );
 
-loadSong(next);
+loadSong(nextIndex);
 
 audio.play()
 .catch(err =>
@@ -172,34 +121,18 @@ console.log(
 }
 );
 
-/* FIRST SONG */
+audio.addEventListener(
+"play",
+() => {
 
-loadSong(currentSong);
-
-/* PARTICLES */
-
-for(let i=0;i<40;i++){
-
-const particle =
-document.createElement("div");
-
-particle.classList.add(
-"particle"
-);
-
-particle.style.left =
-Math.random()*100+"vw";
-
-particle.style.animationDuration =
-(5 + Math.random()*10)+"s";
-
-particle.style.opacity =
-Math.random();
-
-document.body.appendChild(
-particle
+console.log(
+"Audio Started"
 );
 
 }
+);
 
-</script>
+/* INITIAL LOAD */
+
+loadSong(currentSong);
+```
